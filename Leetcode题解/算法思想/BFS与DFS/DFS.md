@@ -118,3 +118,33 @@ var findTargetSumWays = function (nums, target) {
   抽象成二叉树的结构,左边是+,右边是-,每一层节点都对应两种运算方法到下一层级
 */
 ```
+
+## [4.钥匙和房间](https://leetcode-cn.com/problems/keys-and-rooms/)
+
+```typescript
+/**
+ * @param {number[][]} rooms
+ * @return {boolean}
+ */
+function canVisitAllRooms(rooms: number[][]): boolean {
+    // 创建一个set结构数组，用于存放访问过的房间号
+    const visited = new Set()
+    const dfs = (roomNumber: number) => {
+                console.log(1)
+        for (let nextRoomIndex of rooms[roomNumber]){
+            if(!visited.has(nextRoomIndex)){
+                visited.add(nextRoomIndex)
+                dfs(nextRoomIndex)
+                console.log(2)
+            }
+        }
+    }
+    visited.add(0)
+    dfs(0)
+    // 当访问过的房间数等于rooms的长度，说明全部访问过了
+    return visited.size === rooms.length
+};
+/* 
+
+*/
+```
